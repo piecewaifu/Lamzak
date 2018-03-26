@@ -173,7 +173,8 @@ body {
 
 header {
     width: 100%;
-    height: 825px;
+    min-height: 825px;
+    height: auto;
     background: url(images/header_bg.png) no-repeat;
     background-size: 101% 100%;
     background-position-x: -3px;
@@ -181,6 +182,8 @@ header {
     align-items: center;
     flex-direction: column;
     position: relative;
+    /*height: 82%;
+    transform: translate(-50%, -50%);*/
 }
 
     header .container {
@@ -192,23 +195,35 @@ header {
         margin-top: 50px;
     }
 
-        header .container h3 {
-            font-size: 30px;
-            color: white;
-            position: relative;
-            font-family: SFUIDisplayBold;
+    header .container-two {
+        width: 74.5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 50px;
+    }
+
+        header .container-two .inside-container {
+            width: 45%;
         }
 
-            header .container h3:before {
-                content: "";
-                display: block;
-                width: 16px;
-                height: 26px;
-                background: url(images/phone.png);
-                position: absolute;
-                top: 3px;
-                left: -30px;
-            }
+    header .container h3 {
+        font-size: 30px;
+        color: white;
+        position: relative;
+        font-family: SFUIDisplayBold;
+    }
+
+        header .container h3:before {
+            content: "";
+            display: block;
+            width: 16px;
+            height: 26px;
+            background: url(images/phone.png);
+            position: absolute;
+            top: 3px;
+            left: -30px;
+        }
 
     header .text-container {
         width: 74.5%;
@@ -255,9 +270,7 @@ header {
         }
 
     header ul.text {
-        position: absolute;
         top: 495px;
-        left: 16.4%;
     }
 
         header ul.text li {
@@ -282,24 +295,27 @@ header {
 
     header ul.presents {
         display: flex;
-        position: absolute;
         top: 550px;
-        right: 10.4%;
+        flex-wrap: wrap;
+        width: 45%;
     }
 
         header ul.presents li {
             margin-right: 35px;
         }
 
+            header ul.presents li:last-child {
+                margin-right: 0;
+            }
+
     header .button {
-        position: absolute;
-        left: 21%;
-        bottom: 120px;
+        margin: 10% 0 0 120px;
     }
 
 .features {
     width: 100%;
-    height: 519px;
+    height: auto;
+    min-height: 519px;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -333,7 +349,8 @@ header {
 
 .lamzak {
     width: 100%;
-    height: 826px;
+    min-height: 826px;
+    height: auto;
     background: url(images/lamzak_bg.png) no-repeat;
     background-size: 101% 100%;
     background-position-x: -3px;
@@ -358,7 +375,8 @@ header {
 
     .lamzak ul {
         width: 74.5%;
-        height: 514px;
+        min-height: 514px;
+        height: auto;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
@@ -402,7 +420,8 @@ header {
 
 .offer {
     width: 100%;
-    height: 700px;
+    min-height: 700px;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -436,6 +455,7 @@ header {
             align-items: center;
             text-align: center;
             color: white;
+            margin-bottom: 10px;
         }
 
             .offer ul li p {
@@ -447,69 +467,6 @@ header {
                 .offer ul li p span {
                     color: rgb(255, 204, 0);
                 }
-
-/*.choose-track {
-    width: 100%;
-    height: 643px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
-    .choose-track .items {
-        display: flex;
-        margin-top: 25px;
-    }
-
-        .choose-track .items .item {
-            width: 328px;
-            height: 542px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
-            margin-right: 23px;
-        }
-
-            .choose-track .items .item .appearance {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-around;
-                align-items: center;
-                width: 100%;
-                position: relative;
-            }
-
-                .choose-track .items .item .appearance h1 {
-                    font-family: SFUIDisplayBold;
-                    font-size: 18px;
-                    margin: 0 0 20px 0;
-                }
-
-                .choose-track .items .item .appearance p {
-                    font-family: SFUIDisplayMedium;
-                    font-size: 13px;
-                    text-align: center;
-                    margin-bottom: 20px;
-                }
-
-                .choose-track .items .item .appearance h3 {
-                    font-family: SFUIDisplayBold;
-                    margin-bottom: 25px;
-                }
-
-            .choose-track .items .item .item-photo {
-                margin-bottom: 10px;
-            }
-
-            .choose-track .items .item:last-child {
-                margin: 0;
-            }
-
-.hidden {
-    display: none;
-}*/
 
 .choose-sofa {
     width: 100%;
@@ -854,7 +811,8 @@ header {
 
 .right-choice {
     width: 100%;
-    height: 652px;
+    min-height: 652px;
+    height: auto;
     background: url(images/yellow_bg.png);
     background-size: 100% 100%;
     display: flex;
@@ -874,7 +832,8 @@ header {
 
     .right-choice ul {
         width: 74.5%;
-        height: 514px;
+        min-height: 514px;
+        height: auto;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
@@ -1502,7 +1461,7 @@ input::placeholder, textarea::placeholder {
         transform: scale(1.1);
     }
 
-@media screen and (max-width: 1200px) {
+/*@media screen and (max-width: 1200px) {
     .features img {
         display: none;
     }
@@ -1521,6 +1480,12 @@ input::placeholder, textarea::placeholder {
     .features .container .describe {
         z-index: 50000;
     }
+}*/
+
+@media screen and (max-width: 1300px) {
+    .offer ul {
+        justify-content: center;
+    }
 }
 
 @media screen and (max-width: 900px) {
@@ -1538,111 +1503,226 @@ input::placeholder, textarea::placeholder {
     }
 
     header {
-        background-image: none;
-        height: 450px;
+        background-size: cover;
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
         align-items: center;
+        color: black;
     }
 
-        header img {
+        header h1 {
+            font-size: 50px;
             position: relative;
-            top: 0;
-            left: 0;
-        }
-
-    .text-container {
-        height: 200px;
-        width: 100%;
-        position: relative;
-        left: 0;
-        top: 0;
-        justify-content: space-between;
-    }
-
-        .text-container h1 {
-            color: black;
-            font-size: 20px;
-        }
-
-        .text-container h2 {
-            /*color: black;*/
-            font-size: 20px;
+            margin: 0;
             line-height: 20px;
-            text-shadow: 0px 0px 1px rgba(0, 0, 0, 1);
+            padding-left: 10px;
+        }
+
+            header h1 span {
+                font-size: 22px;
+            }
+
+                header h1 span:nth-child(2) {
+                    margin-top: 30px;
+                }
+
+        header .container {
+            flex-direction: column;
             margin: 0;
         }
 
-    .fingerlings {
-        display: none;
+            header .container h3 {
+                font-size: 24px;
+            }
+
+                header .container h3:before {
+                    display: none;
+                }
+
+            header .container img {
+                margin-bottom: 10px;
+                width: 184px;
+                height: 56px;
+            }
+
+        header .text-container {
+            width: 100%;
+            flex-direction: column;
+        }
+
+            header .text-container h2 {
+                font-size: 30px;
+                margin-top: 30px;
+                padding-right: 10px;
+            }
+
+        header ul.text {
+            position: relative;
+            top: 0;
+            left: 0;
+            padding-left: 45px;
+            margin-top: 20px;
+            list-style-type: circle;
+            width: 100%;
+        }
+
+            header ul.text li {
+                font-size: 18px;
+            }
+
+                header ul.text li:before {
+                    display: none;
+                }
+
+        header ul.presents {
+            position: initial;
+            top: 0;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+            header ul.presents li {
+                width: 90px;
+                height: 90px;
+                margin: 0;
+            }
+
+                header ul.presents li img {
+                    width: 90px;
+                    height: 90px;
+                }
+
+        header .button {
+            width: 200px;
+            height: 40px;
+            position: initial;
+            margin-top: 30px;
+        }
+
+    header .container-two {
+        width: 100%;
+        justify-content: space-between;
     }
 
-    .video {
-        display: none;
+    header .inside-container {
+        width: 100%;
     }
 
-    .choose-track {
-        height: 3500px;
+    header .inside-container .button {
+        margin: 0;
     }
 
-        .choose-track p, .choose-track h1 {
+    .features {
+        flex-direction: column;
+        height: 600px;
+    }
+
+        .features h2 {
+            font-size: 20px;
+            padding-left: 10px;
+            line-height: 15px;
+        }
+
+        .features .container {
+            flex-direction: column;
+        }
+
+        .features iframe {
             width: 95%;
+            height: 150px;
+        }
+
+        .features .container ul li {
+            font-size: 18px;
+        }
+
+    .lamzak {
+        background-size: cover;
+        /*height: 2150px;*/
+    }
+
+        .lamzak h2 {
+            margin-top: 40px;
+            font-size: 30px;
+        }
+
+        .lamzak ul {
+            justify-content: space-around;
+        }
+
+            .lamzak ul li {
+                margin-bottom: 0;
+                height: 200px;
+                margin-bottom: 25px;
+            }
+
+    .choose-sofa {
+        height: 1000px;
+    }
+
+        .choose-sofa .info {
+            display: none;
+        }
+
+        .choose-sofa h1 {
+            font-size: 30px;
             text-align: center;
         }
 
-        .choose-track .items {
-            flex-direction: column;
-            height: 2500px;
-            align-items: center;
+        .choose-sofa .container {
             width: 100%;
+            height: 600px;
+            flex-direction: column;
+            align-items: center;
         }
 
-            .choose-track .items .item {
-                margin-right: 0;
-                margin-bottom: 2px;
+            .choose-sofa .container #productColors {
+                width: 98%;
+                height: 200px;
+                margin-top: 30px;
             }
 
-    .leaves {
-        display: none;
+                .choose-sofa .container #productColors li {
+                    width: 100%;
+                    height: 200px;
+                }
+
+    .offer {
+        background-size: cover;
     }
 
-    .kids {
-        display: none;
-    }
-
-    .features h1 {
-        font-size: 30px;
-        text-align: center;
-    }
-
-    .features .container ul.describe {
-        width: 100%;
-        padding-left: 50px;
-    }
-
-    .features .container ul li p {
-        font-size: 14px;
-    }
-
-    .features .container ul li:before {
-        display: none;
-    }
-
-    .horizontal-container {
-        flex-direction: column;
-        width: 100%;
-    }
-
-        .horizontal-container iframe {
-            width: 100%;
+        .offer h2 {
+            color: black;
+            font-size: 30px;
+            text-align: center;
         }
 
-        .horizontal-container #gallery {
-            /*display: none;*/
-            height: 500px;
+            .offer h2 span {
+                color: black;
+            }
+
+        .offer ul {
             width: 100%;
+            justify-content: center;
         }
+
+            .offer ul li {
+                width: 200px;
+                margin-bottom: 40px;
+            }
+
+                .offer ul li p {
+                    font-size: 20px;
+                }
+
+                .offer ul li .button {
+                    height: 40px;
+                    width: 200px;
+                }
+
+                .offer ul li img {
+                    width: 100%;
+                }
 
     .reviews {
         height: 600px;
@@ -1653,6 +1733,7 @@ input::placeholder, textarea::placeholder {
 
         .reviews h1 {
             text-align: center;
+            font-size: 40px;
         }
 
     #carousel {
@@ -1673,6 +1754,23 @@ input::placeholder, textarea::placeholder {
                 #carousel li .review p {
                     width: 100%;
                 }
+
+    .right-choice {
+        background-size: cover;
+    }
+
+        .right-choice h2 {
+            font-size: 30px;
+            text-align: center;
+        }
+
+        .right-choice li {
+            margin-bottom: 25px;
+        }
+
+    .terrain {
+        display: none;
+    }
 
     #next {
         right: 10px;
@@ -1710,12 +1808,27 @@ input::placeholder, textarea::placeholder {
                 }
 
     footer {
-        /*display: none;*/
         width: 100%;
         height: 300px;
-        background-position: center;
+        background-size: cover;
     }
 
+        footer .container {
+            flex-direction: column;
+        }
+
+            footer .container h1 {
+                font-size: 20px;
+            }
+
+                footer .container h1:before {
+                    top: -10px;
+                }
+
+            footer .container p {
+                font-size: 15px;
+                line-height: 15px;
+            }
 
     #message {
         top: 0;
