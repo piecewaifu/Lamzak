@@ -1,0 +1,456 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+
+    <link rel="stylesheet" type="text/css" href="slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
+
+    <script type="text/javascript" src="script.js"></script>
+    <title>Lamzak</title>
+    <link href="https://fonts.googleapis.com/css?family=Marck+Script" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous">
+    </script>
+    <script src="scripts/jquery.maskedinput.min.js"></script>
+    <script src="freewall.js"></script>
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script type="text/javascript" src="slick/slick.min.js"></script>
+</head>
+<body>
+    <div id="alert">
+        <p>Сообщение было отправлено!</p>
+    </div>
+
+    <div id="reviewForm">
+        <div class="container">
+            <span id="close-review-form" class="close-button" onclick="hideReviewFrom()"></span>
+            <h1>Оставить отзыв</h1>
+            <h1 class="alert">Поля должны быть заполнены!</h1>
+            <form>
+                <p>
+                    <img src="img/form_face.png" alt="face" />
+                    <input id="reviewerName" type="text" placeholder="Введите ваше имя"
+                           data-min-length="2" data-max-length="50" />
+                </p>
+                <p>
+                    <img src="img/form_phone.png" alt="face" />
+                    <input id="reviewerCity" type="text" placeholder="номер телефона" />
+                </p>
+                <p>
+                    <img src="img/review.png" alt="face" />
+                    <textarea id="reviewerMessage" placeholder="оставить отзыв" rows="5" cols="50"></textarea>
+                </p>
+            </form>
+            <div id="send-review" class="button" onclick="leaveReview()">отправить</div>
+        </div>
+    </div>
+
+    <div id="orderForm">
+        <div class="container">
+            <h1>Оформление заказа</h1>
+            <h1>Товар: <span class="name"></span></h1>
+            <h1>Цена: <span class="price"></span></h1>
+            <span class="close-button" onclick="hideOrderForm()"></span>
+            <h1 class="alert">Поля должны быть заполнены!</h1>
+            <form>
+                <p>
+                    <img src="img/form_face.png" alt="face" />
+                    <input id="customerName" type="text" placeholder="Введите ваше имя"
+                           data-min-length="2" data-max-length="50" />
+                </p>
+                <p>
+                    <img src="img/form_phone.png" alt="face" />
+                    <input id="customerPhone" type="text" placeholder="+7(XXX) XXX-XXXX" />
+                </p>
+                <p>
+                    <img src="img/box.png" alt="face" />
+                    <input id="customerAddress" type="text" placeholder="Ваш адрес" />
+                </p>
+
+                <div class="total-price">
+                    <div id="cart">
+                        <img src="img/cart.png" alt="cart" />
+                        <span id="minus"></span>
+                        <p><span id="quantity">0</span> ШТ.</p>
+                        <span id="plus"></span>
+                    </div>
+                    <div id="total">
+                        <p>сумма заказа</p>
+                        <h1><span id="amount">x xxx</span> руб.</h1>
+                    </div>
+                </div>
+            </form>
+            <div id="send-order" class="button send">отправить</div>
+        </div>
+    </div>
+
+    <div id="zoomed">
+        <div id="zoomed-content">
+            <span id="close"></span>
+            <div onclick="nextImage()" id="nextImage"></div>
+            <div onclick="prevImage()" id="prevImage"></div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <img src="images/site_logo.png" alt="site logo" />
+            <h3>+7(499)490-13-88</h3>
+        </div>
+
+        <div class="text-container">
+            <h1>
+                Надувной <br />
+                <span>портативный</span><br />
+                <span>диван-шезлонг</span>
+            </h1>
+            <h2><span>+ Подарок</span> каждому<br /> покупателю</h2>
+        </div>
+
+        <ul class="text">
+            <li>Компактный, прочный и легкий</li>
+            <li>Не нужен насос</li>
+            <li>Готов к использованию за 10 секунд</li>
+        </ul>
+
+        <ul class="presents">
+            <li><img src="images/present1.png" alt="present"/></li>
+            <li><img src="images/present2.png" alt="present" /></li>
+            <li><img src="images/present3.png" alt="present" /></li>
+        </ul>
+
+        <div class="button">купить</div>
+    </header>
+
+    <div class="features">
+        <div class="container">
+            <h2>
+                Почему диваны LAMZAC<br />
+                <span>так нравится покупателям?</span>
+            </h2>
+
+            <ul>
+                <li>Суперпрочный: выдерживает вес до 400 кг</li>
+                <li>Невероятно легкий - весит чуть более 1кг и имеет размер 15 на 35 сантиметров</li>
+                <li>Диван создан из прочной водонепроницаемой ткани, крайне устойчив к износу и повреждениям</li>
+                <li>Диван LAMZAC надувается за 10 секунд без помощи насоса</li>
+                <li>Можно использовать на любых поверхностях и при любых температурах!</li>
+            </ul>
+        </div>
+
+        <iframe id="ytplayer" width="599" height="338" src="https://www.youtube.com/embed/s6gyEYp2S5I" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <div class="lamzak">
+        <h2>
+            <span>Всегда под рукой!</span> <br />
+            LAMZAC прекрасно подойдет для:
+        </h2>
+
+        <ul>
+            <li>
+                <img src="images/1.png" alt="img" />
+                <h3>Путешественников</h3>
+                <p>
+                    Комфорт в любом месте,
+                    будь то аэропорт <br />
+                    или живописный пляж
+                </p>
+            </li>
+            <li>
+                <img src="images/2.png" alt="img" />
+                <h3>Автомобилистов</h3>
+                <p>
+                    Отдых с вами везде, где<br />
+                    бы вы ни остановились
+                </p>
+            </li>
+            <li>
+                <img src="images/3.png" alt="img" />
+                <h3>Детей</h3>
+                <p>
+                    Развлечения и веселье<br />
+                    на лужайке уже через<br />
+                    несколько минут
+                </p>
+            </li>
+            <li>
+                <img src="images/4.png" alt="img" />
+                <h3>Спортсменов</h3>
+                <p>
+                    Отличный способ<br />
+                    отдыха в перерывах между<br />
+                    соревнованиями
+                </p>
+            </li>
+            <li>
+                <img src="images/5.png" alt="img" />
+                <h3>Туристов</h3>
+                <p>
+                    Незаменимый атрибут для всех,<br />
+                    кто любит отдыхать на природе
+                </p>
+            </li>
+            <li>
+                <img src="images/6.png" alt="img" />
+                <h3>Студентов</h3>
+                <p>
+                    Расслабиться с книгой или<br />
+                    планшетом в парке<br />
+                    или сквере университета
+                </p>
+            </li>
+            <li>
+                <img src="images/7.png" alt="img" />
+                <h3>Отдыхающих на<br /> пляже</h3>
+                <p>
+                    Развлечения и веселье<br />
+                    на лужайке уже через<br />
+                    несколько минут
+                </p>
+            </li>
+            <li>
+                <img src="images/8.png" alt="img" />
+                <h3>Дачников</h3>
+                <p>
+                    Всегда найдется место для<br />
+                    друзей и неожиданно<br />
+                    нагрянувших гостей
+                </p>
+            </li>
+        </ul>
+    </div>
+
+
+
+    <div class="choose-sofa" id="products">
+        <!--<ul class="items">
+            <li class="item discount-mark">
+                <img class="item-photo" src="MainPic/zoe.png" alt="item photo" />
+                <div class="appearance">
+                    <h3>Зои</h3>
+                    <p>
+                        Гимнастка, обожающая висеть вверх ногами<br />
+                        и очень любит обниматься.
+                    </p>
+                    <h1 class="price">1890 руб.</h1>
+                </div>
+
+                <div class="button"><img src="img/shopping_cart.png" alt="img" /> купить обезьянку</div>
+            </li>
+
+            <li class="item discount-mark">
+                <img class="item-photo" src="MainPic/sofi.png" alt="item photo" />
+                <div class="appearance">
+                    <h3>Софи</h3>
+                    <p>
+                        Любит приключения и дарить <br />воздушные поцелуи
+                    </p>
+                    <h1 class="price">1890 руб.</h1>
+                </div>
+
+                <div class="button"><img src="img/shopping_cart.png" alt="img" /> купить обезьянку</div>
+            </li>
+
+            <li class="item">
+                <img class="item-photo" src="MainPic/boris.png" alt="item photo" />
+                <div class="appearance">
+                    <h3>Борис</h3>
+                    <p>
+                        Настоящий весельчак, способен поднять<br /> настроение кому угодно.
+                    </p>
+                    <h1 class="price">1890 руб.</h1>
+                </div>
+
+                <div class="button"><img src="img/shopping_cart.png" alt="img" /> купить обезьянку</div>
+            </li>
+        </ul>-->
+
+        <h1>Выбери свой <span>Диван LAMZAC!</span> </h1>
+
+        <div class="container">
+            <ul id="colors">
+                <li class="active"><img src="images/ecl1.png" alt="img" /><p>Фиолетовый</p></li>
+                <li><img src="images/ecl2.png" alt="img" /><p>Синий</p></li>
+                <li><img src="images/ecl3.png" alt="img" /><p>Голубой</p></li>
+                <li><img src="images/ecl4.png" alt="img" /><p>Зеленый</p></li>
+                <li><img src="images/ecl5.png" alt="img" /><p>Желтый</p></li>
+                <li><img src="images/ecl6.png" alt="img" /><p>Розовый</p></li>
+            </ul>
+
+            <ul id="productColors">
+                <li class="active"><img src="images/product1.png" alt="product1" /></li>
+                <li><img src="images/product2.png" alt="product2" /></li>
+                <li><img src="images/product3.png" alt="product3" /></li>
+                <li><img src="images/product4.png" alt="product4" /></li>
+                <li><img src="images/product5.png" alt="product5" /></li>
+                <li><img src="images/product6.png" alt="product6" /></li>
+            </ul>
+
+            <ul class="info">
+                <li>
+                    Материал:
+                    <span>Нейлон</span>
+                </li>
+                <li>
+                    Вес (с сумкой):
+                    <span>1.2 кг</span>
+                </li>
+                <li>
+                    В сложенном<br />
+                    виде:
+                    <span>18 x 35 см</span>
+                </li>
+                <li>
+                    В разложенном<br />
+                    виде:
+                    <span>200 x 90 см</span>
+                </li>
+                <li>
+                    Максимальный<br />
+                    выдерживаемый<br />
+                    вес:
+                    <span>200 кг</span>
+                </li>
+                <li id="price">ЦЕНА: 1390 р.</li>
+            </ul>
+        </div>
+
+        <div class="buy button">ЗАКАЗАТЬ</div>
+    </div>
+
+    <div class="offer">
+        <h2>Заказывайте диван LAMZAC <span>себе и друзьям!</span></h2>
+
+        <ul>
+            <li>
+                <img src="images/2x.png" alt="lamzak" />
+                <p>2 ламзака за <span>2390</span> рублей,<br /> экономия 390 рублей</p>
+                <div class="button">ЗАКАЗАТЬ</div>
+            </li>
+
+            <li>
+                <img src="images/3x.png" alt="lamzak" />
+                <p>3 ламзака за <span>3390</span> рублей,<br /> экономия 790 рублей</p>
+                <div class="button">ЗАКАЗАТЬ</div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="reviews">
+        <h1>Отзывы наших клиентов</h1>
+        <ul id="carousel">
+            <li>
+                <div class="person">
+                    <div class="photo"></div>
+                </div>
+                <div class="review">
+                    <h6>Николай Ситников <br /> <span>Санкт - Петербург</span></h6>
+                    <p>Брал в подарок подруге прошлым летом, юзаю сам до сих пор - на озёра летом, на Новый год в Тайланде вещь по фану, теперь ещё и себе заказываю, спасибо за скидку)))</p>
+                </div>
+            </li>
+
+            <li>
+                <div class="person">
+                    <div class="photo"></div>
+                </div>
+                <div class="review">
+                    <h6>Николай Ситников <br /> <span>Санкт - Петербург</span></h6>
+                    <p>Брал в подарок подруге прошлым летом, юзаю сам до сих пор - на озёра летом, на Новый год в Тайланде вещь по фану, теперь ещё и себе заказываю, спасибо за скидку)))</p>
+                </div>
+            </li>
+            <li>
+                <div class="person">
+                    <div class="photo"></div>
+                </div>
+                <div class="review">
+                    <h6>Николай Ситников <br /> <span>Санкт - Петербург</span></h6>
+                    <p>Брал в подарок подруге прошлым летом, юзаю сам до сих пор - на озёра летом, на Новый год в Тайланде вещь по фану, теперь ещё и себе заказываю, спасибо за скидку)))</p>
+                </div>
+            </li>
+        </ul>
+        <!--<div class="button" onclick="showReviewForm()">оставить отзыв</div>-->
+        <div id="next" onclick="turnRight()"></div>
+        <div id="prev" onclick="turnLeft()"></div>
+    </div>
+
+    <div class="right-choice">
+        <h2><span>Почему у</span> нас лучше?</h2>
+
+        <ul>
+            <li>
+                <img src="images/price.png" alt="img" />
+                <h3>Цена</h3>
+                <p>
+                    1 ламзак за 1390 рублей
+                    2 ламзака за 2390 рублей
+                    3 ламзака за 3390 рублей
+                </p>
+            </li>
+            <li>
+                <img src="images/price.png" alt="img" />
+                <h3>Цена</h3>
+                <p>
+                    Гарантия 1 год с момента приобретения<br />
+
+                    Возврат денежных средств
+                </p>
+            </li>
+            <li>
+                <img src="images/price.png" alt="img" />
+                <h3>Цена</h3>
+                <p>
+                    Курьером на дом<br />
+
+                    Почта России<br />
+
+                    Транспортными компаниями<br />
+
+                    Оплата товара при получении<br />
+                </p>
+            </li>
+            <li>
+                <img src="images/price.png" alt="img" />
+                <h3>Цена</h3>
+                <p>
+                    Возможны оптовые поставки.<br />
+
+                    Цены ЕЩЕ ниже!
+                </p>
+            </li>
+        </ul>
+    </div>
+
+    <div class="gallery">
+
+    </div>
+
+    <div class="terrain">
+
+    </div>
+
+    <footer>
+        <div class="container">
+            <h1>+7(499)490-13-88</h1>
+            <p>
+                Россия, Санкт-Петербург,<br />
+
+                проспект Юрия Гагарина, 2, корп. 3,<br />
+
+                ТЦ Благодатный,<br />
+
+                ст. м. Электросила, Парк Победы<br />
+
+                E-mail: lamzakzakaz@yandex.ru<br />
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
