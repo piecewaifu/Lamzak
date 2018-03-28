@@ -12,6 +12,14 @@ var slideInterval;
 
 
 window.onload = function () {
+    $(document).on('click', 'a[href^="#"]', function (event) {
+        event.preventDefault();
+
+        $('html, body').animate({
+            scrollTop: $($.attr(this, 'href')).offset().top
+        }, 500);
+    });
+
     //$('#colors li').click(function (event) {
     //    $('#colors li').removeClass('active');
     //    $(this).addClass('active');

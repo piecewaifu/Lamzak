@@ -745,6 +745,7 @@ header {
     #carousel .person .photo {
         width: 200px;
         height: 200px;
+        border-radius: 50%;
         background: url(images/photo.png);
         background-size: 100%;
         margin-bottom: 15px;
@@ -753,6 +754,7 @@ header {
     #carousel .person .photo1 {
         width: 200px;
         height: 200px;
+        border-radius: 50%;
         background: url(images/photo.png);
         background-size: 100%;
         margin-bottom: 15px;
@@ -761,6 +763,7 @@ header {
     #carousel .person .photo2 {
         width: 200px;
         height: 200px;
+        border-radius: 50%;
         background: url(images/photo.png);
         background-size: 100%;
         margin-bottom: 15px;
@@ -1485,12 +1488,48 @@ input::placeholder, textarea::placeholder {
     }
 }*/
 
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 1500px) {
     .offer ul {
-        justify-content: center;
+        /*justify-content: center;*/
+        justify-content: space-around;
+        width: 100%;
     }
+
+    .right-choice ul {
+        width: 100%;
+    }
+
+    .choose-sofa .container {
+        width: 100%;
+        justify-content: space-around;
+    }
+
 }
 
+@media screen and (max-width: 1360px) {
+    .lamzak ul {
+        width: 90%;
+    }
+
+    .presents li {
+        width: 120px;
+        height: 120px;
+    }
+
+        .presents li img {
+            width: 100%;
+            height: 100%;
+        }
+
+    header .container-two {
+        width: 90%;
+        justify-content: space-around;
+    }
+
+    header .text-container {
+        width: 90%;
+    }
+}
 @media screen and (max-width: 900px) {
     #zoomed #close {
         top: 10px;
